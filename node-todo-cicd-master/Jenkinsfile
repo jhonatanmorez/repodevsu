@@ -12,6 +12,11 @@ pipeline {
                 checkout scm
             }
         }
+        stage("Change Path") {
+            steps {
+                sh "cd /var/lib/jenkins/workspace/CICDGKE/node-todo-cicd-master"
+            }
+        }
         stage("Build image") {
             steps {
                 script {
