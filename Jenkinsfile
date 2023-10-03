@@ -3,7 +3,7 @@ pipeline {
     environment {
         PROJECT_ID = 'proyecto-gcp-395116'
         CLUSTER_NAME = 'k8sdevsu'
-        LOCATION = 'us-east4'
+        LOCATION = 'us-central1'
         CREDENTIALS_ID = 'Proyecto-GCP'
     }
     stages {
