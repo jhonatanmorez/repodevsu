@@ -18,12 +18,12 @@ spec:
         tier: devsu-demo-devops-nodejs
     spec:
       containers:
-        - name: devsu-demo-devops-nodejs
+        - name: devsu-demo
           image: jorgemore/devsu-demo-devops-nodejs:latest
           imagePullPolicy: Always
           ports:
           - containerPort: 8000
-            name: devsu-demo-devops-nodejs
+            name: devsu-demo
 
 
 ---
