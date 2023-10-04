@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devsu-demo-devops-nodejs
+  labels:
+    app: devsu-demo-devops-nodejs
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: devsu-demo-devops-nodejs
+      
+  template:
+    metadata:
+      labels:
+        app: devsu-demo-devops-nodejs
+        tier: devsu-demo-devops-nodejs
+    spec:
+      containers:
+        - name: devsu-demo-devops-nodejs
+          image: jorgemore/devsu-demo-devops-nodejs:latest
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8000
+            name: devsu-demo-devops-nodejs
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: devsu-demo-devops-nodejs
+  labels:
+    app: devsu-demo-devops-nodejs
+spec:
+  ports:
+    - port: 8000
+      targetPort: 8000
+  selector:
+    app: devsu-demo-devops-nodejs
+    tier: devsu-demo-devops-nodejs
+  type: LoadBalancer
